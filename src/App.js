@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Body from './components/Body';
+import Navbar from './components/MyNavbar';
+
+
 
 function App() {
+  const [film, setFilm] = useState({})
+  const getMovie =(scenario)=>{
+    setFilm(scenario)
+  }
+  const [search, setSearch] = useState("")
+  const getSearch=(search)=>{
+    setSearch(search)
+  }
+  const [rate, setRate] = useState("")
+  const getRate=(rate)=>{
+    setRate(rate)
+    console.log(rate)
+  }
+
+
+
+console.log(search)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar getMovie={getMovie} getSearch={getSearch} getRate={getRate}/>
+      <Body film={film} search={search} rate={rate}/>
     </div>
   );
 }
