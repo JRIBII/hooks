@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Body from './components/Body';
+import Home from './components/Home';
 import Navbar from './components/MyNavbar';
-
+import Trailer from './components/Trailer';
+import { Data } from './Data';
 
 
 function App() {
@@ -26,7 +29,12 @@ console.log(search)
   return (
     <div className="App">
       <Navbar getMovie={getMovie} getSearch={getSearch} getRate={getRate}/>
-      <Body film={film} search={search} rate={rate}/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/body" element={<Body film={film} search={search} rate={rate} />}/>
+        <Route path="/Trailer/:id" element={<Trailer movies={Data} />}/>
+      </Routes>
+
     </div>
   );
 }

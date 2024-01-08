@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 import ReactStars from 'react-stars';
 
 
@@ -11,6 +12,7 @@ console.log(NewRate)
         <Card.Img variant="top" src={film.posterUrl} />
         <Card.Body>
           <Card.Title>{film.title}</Card.Title>
+          <Link to={`/trailer/${film.id}`}>trailer</Link>
           <Card.Text style={{overflowY: "hidden", height: "100px"}}>
             {film.description}
           </Card.Text>

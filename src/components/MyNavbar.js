@@ -6,7 +6,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import ReactStars from 'react-stars';
 import { Data } from '../Data';
+import { LinkContainer } from 'react-router-bootstrap';
 import AddMovie from './AddMovie';
+
 
 const MyNavbar = ({ getMovie, getSearch, getRate }) => {
 
@@ -21,14 +23,15 @@ const MyNavbar = ({ getMovie, getSearch, getRate }) => {
     <div>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
-          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
-              navbarScroll
-            >
+            <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
+              <LinkContainer to={'/'} >
+                <Nav.Link >Home</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to={'/Body'} >
+                <Nav.Link >Movies</Nav.Link>
+              </LinkContainer>
               <AddMovie zidMovie={zidMovie} />
             </Nav>
           <ReactStars
